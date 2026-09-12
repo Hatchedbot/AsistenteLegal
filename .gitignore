@@ -1,0 +1,40 @@
+# Credenciales / variables de entorno  (NUNCA subir claves reales)
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+credentials.json
+
+# Entornos virtuales
+.venv/
+.venv-*/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Estado local de Claude Code (no es parte del proyecto)
+.claude/
+
+# Material de apoyo (referencia de clase, no forma parte del entregable)
+MaterialDeApoyo/
+
+# Artefactos de compilación de LaTeX (docs/latex/)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

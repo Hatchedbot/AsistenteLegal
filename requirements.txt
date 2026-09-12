@@ -1,0 +1,14 @@
+# Consultor Normativo - Avance 1
+# Dependencias mínimas para la fase de ingeniería de prompts.
+
+# --- API de Google Gemini (PDF "System configuration Chat Roles") ---
+google-genai==1.61.0
+
+# --- Ejecución local con Ollama (PDF "Ejecución de LLMs con Ollama") ---
+ollama==0.4.7
+
+# --- Utilidades ---
+python-dotenv==1.2.1
+
+# --- Modo análisis documental (--modo documento): extracción de texto de PDF ---
+pypdf==5.1.0

@@ -1,0 +1,289 @@
+% Informe de evidencias de ejecución — Avance 1 (Consultor Normativo)
+% Estilo inspirado en el informe LaTeX del prototipo BetaPRelectiva1.
+%
+% CÓMO COMPILAR
+% --------------
+% Opción A (sin instalar nada): subir esta carpeta a https://overleaf.com
+%   (New Project > Upload Project, o pegar este archivo en un proyecto nuevo).
+% Opción B (local, con MiKTeX o TeX Live instalado):
+%   pdflatex informe_avance1.tex
+%   pdflatex informe_avance1.tex   (segunda pasada para el índice/numeración)
+%
+% CAPTURAS DE PANTALLA
+% ---------------------
+% Coloque las imágenes en ../img/ con estos nombres exactos:
+%   evidencia_00.png ... evidencia_07.png  (y opcionalmente evidencia_doc.png)
+% Si el archivo existe, se incluye automáticamente; si no, se muestra un
+% recuadro de marcador de posición para que sepa qué falta.
+
+\documentclass[11pt]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=fullflexible,
+  backgroundcolor=\color{black!5},
+  frame=single,
+  framesep=4pt,
+}
+
+\newcommand{\evidenciaimg}[3]{%
+  \begin{figure}[h!]
+    \centering
+    \IfFileExists{#1}{%
+      \includegraphics[width=0.85\textwidth]{#1}%
+    }{%
+      \fbox{\begin{minipage}[c][5.5cm][c]{0.85\textwidth}
+        \centering
+        \textbf{[Espacio para captura de pantalla]}\\[6pt]
+        \texttt{\detokenize{#1}}
+      \end{minipage}}%
+    }
+    \caption{#2}
+    \label{#3}
+  \end{figure}
+}
+
+\title{\textbf{Evidencia de Ejecución y Análisis del Prompt}\\
+  \large Consultor Normativo — Asistente de Orientación sobre Normativa Colombiana}
+\author{Joan Sebastian Lara Fuenmayor}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Diseño y Estructuración del Prompt}
+
+El asistente «Consultor Normativo» se construyó siguiendo tres técnicas de
+ingeniería de prompts vistas en clase: configuración del \emph{system prompt},
+\emph{few-shot prompting} y delimitadores. El objetivo es que el modelo
+responda dudas normativas de una persona sin formación jurídica, citando
+siempre la norma y el artículo exactos, y reconociendo explícitamente cuándo
+la información \textbf{no} está en sus fuentes (control de alucinaciones).
+
+\subsection{System Prompt}
+
+Se define a la IA con el rol de \textbf{«Consultor Normativo»}, no abogado,
+cuyo conocimiento se limita EXCLUSIVAMENTE al texto entregado dentro de la
+etiqueta \texttt{<contexto\_normativo>} de cada mensaje. El system prompt
+incluye:
+\begin{itemize}
+  \item \textbf{Dominio acotado:} Ley 1581 de 2012, Ley 820 de 2003,
+    Ley 1480 de 2011, Código Civil, CPACA (Ley 1437 de 2011), Estatuto
+    Tributario y Código General del Proceso (Ley 1564 de 2012).
+  \item \textbf{Reglas estrictas (zero-hallucination):} prohibido inventar
+    números de artículo, nombres de normas o citas textuales; si la consulta
+    es jurídica pero el contexto no la cubre, la respuesta debe ser
+    exactamente: \emph{"La información solicitada no se encuentra en las
+    fuentes consultadas."}
+  \item \textbf{Lógica condicional} (equivalente a \texttt{if/else} en
+    lenguaje natural) para distinguir entre: consulta resuelta por el
+    contexto, consulta jurídica sin fundamento en el contexto, y consulta
+    fuera del dominio del asistente.
+  \item \textbf{Formato de salida forzado:} JSON estructurado (o Markdown,
+    según configuración), sin texto adicional.
+\end{itemize}
+
+\subsection{Few-Shot Prompting}
+
+Se incluyen 5 ejemplos ya resueltos, con el mismo esquema JSON, cubriendo
+casos variados: arrendamiento, datos personales, consumidor, una consulta
+\textbf{fuera de alcance} y una consulta \textbf{sin fundamento} en el
+contexto. Esto fija el formato de salida y el criterio de respuesta antes de
+recibir la consulta real del usuario.
+
+\subsection{Delimitadores}
+
+Se usan etiquetas tipo XML para separar de forma inequívoca cada bloque del
+prompt de usuario:
+
+\begin{lstlisting}
+<contexto_normativo> ...textos de las leyes... </contexto_normativo>
+<consulta_usuario>   ...la pregunta del usuario... </consulta_usuario>
+<instrucciones>      ...qué debe hacer el modelo... </instrucciones>
+\end{lstlisting}
+
+Se prefirieron sobre la triple comilla o la triple tilde invertida
+(\texttt{```}) porque permiten anidar bloques (cada ejemplo few-shot lleva
+sus propias secciones internas) y reducen el riesgo de que la consulta del
+usuario se haga pasar por una instrucción (inyección de prompt).
+
+\subsection{Formato de salida}
+
+\begin{lstlisting}
+{
+  "respuesta": "explicacion clara para una persona sin formacion juridica",
+  "fundamento_normativo": [
+    { "norma": "Ley 1581 de 2012", "articulo": "Articulo 8",
+      "cita_textual": "..." }
+  ],
+  "nivel_confianza": "alto | medio | bajo",
+  "advertencia": "Este contenido es orientacion informativa...",
+  "requiere_abogado": true
+}
+\end{lstlisting}
+
+\section{Entorno usado}
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Dato} & \textbf{Valor} \\
+\hline
+Motor LLM (\texttt{LLM\_PROVIDER}) & \\
+\hline
+Modelo & \\
+\hline
+Sistema operativo & \\
+\hline
+Fecha de ejecución & \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Evidencias de Ejecución}
+
+A continuación se presentan las pruebas realizadas en la consola que
+demuestran el comportamiento del sistema frente a distintos escenarios.
+
+\subsection{Evidencia 0 — Estructura del prompt (sin llamar al modelo)}
+
+\begin{lstlisting}
+python src/main.py --ver-prompt --normas ley_820_2003 --consulta "¿Puedo terminar el contrato de arriendo antes de tiempo?"
+\end{lstlisting}
+
+\textbf{Qué observar:} el System Prompt con las secciones \texttt{<dominio>},
+\texttt{<reglas>}, \texttt{<estilo>} y \texttt{<formato\_salida>}; y el User
+Prompt con \texttt{<ejemplos>} (few-shot), \texttt{<contexto\_normativo>},
+\texttt{<consulta\_usuario>} e \texttt{<instrucciones>}.
+
+\evidenciaimg{../img/evidencia_00.png}{Estructura ensamblada del prompt.}{fig:ev0}
+
+\subsection{Evidencia 1 — Consulta CON fundamento (arrendamiento)}
+
+\begin{lstlisting}
+python src/main.py --normas ley_820_2003
+# Consulta> Si quiero terminar mi contrato de arriendo antes de tiempo, ¿con cuanta anticipacion debo avisar y tengo que pagar algo?
+\end{lstlisting}
+
+\textbf{Qué observar:} salida en JSON válido; \texttt{fundamento\_normativo}
+cita la \textbf{Ley 820 de 2003, Artículo 24} con \texttt{cita\_textual}
+tomada del contexto; \texttt{nivel\_confianza: "alto"}.
+
+\evidenciaimg{../img/evidencia_01.png}{Consulta con fundamento normativo — arrendamiento.}{fig:ev1}
+
+\subsection{Evidencia 2 — Consulta CON fundamento (datos personales)}
+
+\begin{lstlisting}
+python src/main.py --normas ley_1581_2012
+# Consulta> ¿Que derechos tengo sobre mis datos personales y en cuanto tiempo deben responderme una consulta?
+\end{lstlisting}
+
+\textbf{Qué observar:} cita \textbf{Ley 1581 de 2012, Artículo 8} y
+\textbf{Artículo 14} (término de 10 días hábiles). El modelo no agrega
+información que no esté en el contexto.
+
+\evidenciaimg{../img/evidencia_02.png}{Consulta con fundamento normativo — datos personales.}{fig:ev2}
+
+\subsection{Evidencia 3 — Consulta CON fundamento (consumidor / retracto)}
+
+\begin{lstlisting}
+python src/main.py --normas ley_1480_2011
+# Consulta> Compre un electrodomestico por internet y me arrepenti al dia siguiente. ¿Puedo devolverlo?
+\end{lstlisting}
+
+\textbf{Qué observar:} cita \textbf{Ley 1480 de 2011, Artículo 47}; menciona
+los \textbf{5 días hábiles} y la devolución del dinero.
+
+\evidenciaimg{../img/evidencia_03.png}{Consulta con fundamento normativo — derecho de retracto.}{fig:ev3}
+
+\subsection{Evidencia 4 — Consulta FUERA DE ALCANCE (guardrail)}
+
+\begin{lstlisting}
+python src/main.py
+# Consulta> ¿Me recomiendas invertir en criptomonedas este mes?
+\end{lstlisting}
+
+\textbf{Qué observar:} el asistente \textbf{no responde} la pregunta
+financiera; redirige e indica su alcance. \texttt{fundamento\_normativo: []},
+\texttt{nivel\_confianza: "bajo"}.
+
+\evidenciaimg{../img/evidencia_04.png}{Guardrail ante consulta fuera del dominio.}{fig:ev4}
+
+\subsection{Evidencia 5 — Consulta jurídica SIN fundamento en el contexto}
+
+\begin{lstlisting}
+python src/main.py --normas codigo_civil
+# Consulta> ¿La ley colombiana permite el matrimonio entre primos hermanos?
+\end{lstlisting}
+
+\textbf{Qué observar:} el fragmento de Código Civil cargado trata de
+contratos y responsabilidad, no de matrimonio. La respuesta debe ser
+exactamente: \emph{"La información solicitada no se encuentra en las fuentes
+consultadas."}, con \texttt{fundamento\_normativo: []}. \textbf{Esto
+demuestra el control de alucinaciones vía prompt.}
+
+\evidenciaimg{../img/evidencia_05.png}{Control de alucinaciones ante ausencia de fundamento.}{fig:ev5}
+
+\subsection{Evidencia 6 — Mismo prompt, otro motor (opcional)}
+
+Se repite una de las consultas cambiando \texttt{LLM\_PROVIDER} en
+\texttt{.env} (de \texttt{ollama} a \texttt{gemini} o viceversa) para
+evidenciar que la estructura de prompts es independiente del motor.
+
+\evidenciaimg{../img/evidencia_06.png}{Misma consulta ejecutada en un motor distinto.}{fig:ev6}
+
+\subsection{Evidencia 7 — Formato Markdown (opcional)}
+
+\begin{lstlisting}
+python src/main.py --formato markdown --normas estatuto_tributario
+# Consulta> ¿Cual es la sancion por presentar tarde una declaracion tributaria?
+\end{lstlisting}
+
+\textbf{Qué observar:} el mismo contenido pero renderizado en Markdown, según
+lo definido en el bloque \texttt{<formato\_salida>} del System Prompt.
+
+\evidenciaimg{../img/evidencia_07.png}{Salida en formato Markdown.}{fig:ev7}
+
+\section{Conclusión}
+
+% TODO: redactar 3-5 líneas sobre qué se logró con la estructuración del
+% prompt, cómo el System Prompt y el Few-Shot fuerzan el formato JSON, y cómo
+% los delimitadores y la lógica condicional evitan que el modelo responda
+% fuera de las fuentes.
+
+La combinación de un System Prompt fuertemente parametrizado, ejemplos
+few-shot consistentes y delimitadores tipo XML demuestra ser eficaz para
+tareas de orientación normativa. La delimitación explícita del contexto y la
+restricción del formato de salida garantizan la confiabilidad del sistema en
+un dominio donde la precisión de la información es crítica, evitando que el
+modelo complete con conocimiento propio lo que no está en las fuentes
+entregadas.
+
+\appendix
+\section{Anexo (opcional): modo de análisis documental}
+
+Como capacidad adicional, el proyecto incorpora un segundo modo,
+independiente del Consultor Normativo, para analizar cualquier documento
+\texttt{.txt}/\texttt{.pdf} cargado por el usuario (contratos, manuales,
+políticas, etc.) con el mismo criterio de cero-alucinación, citando siempre
+el fragmento textual exacto que respalda la respuesta:
+
+\begin{lstlisting}
+python src/main.py --modo documento --documento contrato.pdf
+\end{lstlisting}
+
+\evidenciaimg{../img/evidencia_doc.png}{Modo de análisis documental sobre un documento arbitrario.}{fig:evdoc}
+
+\end{document}

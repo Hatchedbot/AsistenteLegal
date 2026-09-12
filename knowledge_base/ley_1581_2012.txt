@@ -1,0 +1,66 @@
+FRAGMENTO ACADÉMICO — Avance 1
+Ley 1581 de 2012 — "Por la cual se dictan disposiciones generales para la protección
+de datos personales" (Colombia).
+Nota: reproducción parcial y resumida con fines didácticos. Verifique siempre contra
+el texto oficial y vigente (Diario Oficial / SIC).
+================================================================================
+
+Artículo 3. Definiciones.
+a) Autorización: Consentimiento previo, expreso e informado del Titular para llevar
+   a cabo el tratamiento de datos personales.
+c) Dato personal: Cualquier información vinculada o que pueda asociarse a una o varias
+   personas naturales determinadas o determinables.
+f) Responsable del Tratamiento: Persona natural o jurídica, pública o privada, que por
+   sí misma o en asocio con otros, decida sobre la base de datos y/o el tratamiento.
+g) Titular: Persona natural cuyos datos personales sean objeto de tratamiento.
+
+Artículo 4. Principios para el Tratamiento de datos personales.
+En el desarrollo, interpretación y aplicación de la presente ley se aplicarán, de
+manera armónica e integral, los principios de: legalidad, finalidad, libertad,
+veracidad o calidad, transparencia, acceso y circulación restringida, seguridad y
+confidencialidad.
+
+Artículo 5. Datos sensibles.
+Se entiende por datos sensibles aquellos que afectan la intimidad del Titular o cuyo
+uso indebido puede generar su discriminación, tales como los que revelen origen racial
+o étnico, orientación política, convicciones religiosas o filosóficas, pertenencia a
+sindicatos, organizaciones sociales o de derechos humanos, así como los datos relativos
+a la salud, a la vida sexual y los datos biométricos.
+
+Artículo 8. Derechos de los Titulares.
+El Titular de los datos personales tendrá los siguientes derechos:
+a) Conocer, actualizar y rectificar sus datos personales frente a los Responsables o
+   Encargados del Tratamiento.
+b) Solicitar prueba de la autorización otorgada al Responsable del Tratamiento, salvo
+   cuando expresamente se exceptúe como requisito para el Tratamiento.
+c) Ser informado por el Responsable o el Encargado, previa solicitud, respecto del uso
+   que les ha dado a sus datos personales.
+d) Presentar ante la Superintendencia de Industria y Comercio quejas por infracciones
+   a lo dispuesto en la presente ley.
+e) Revocar la autorización y/o solicitar la supresión del dato cuando en el Tratamiento
+   no se respeten los principios, derechos y garantías constitucionales y legales.
+f) Acceder en forma gratuita a sus datos personales que hayan sido objeto de Tratamiento.
+
+Artículo 9. Autorización del Titular.
+Sin perjuicio de las excepciones previstas en la ley, en el Tratamiento se requiere la
+autorización previa e informada del Titular, la cual deberá ser obtenida por cualquier
+medio que pueda ser objeto de consulta posterior.
+
+Artículo 14. Consultas.
+Los Titulares o sus causahabientes podrán consultar la información personal del Titular
+que repose en cualquier base de datos. La consulta será atendida en un término máximo
+de diez (10) días hábiles contados a partir de la fecha de recibo de la misma. Cuando
+no fuere posible atender la consulta dentro de dicho término, se informará al interesado
+antes del vencimiento de los 10 días, expresando los motivos de la demora y señalando
+la fecha en que se atenderá su consulta, la cual en ningún caso podrá superar los cinco
+(5) días hábiles siguientes al vencimiento del primer término.
+
+Artículo 15. Reclamos.
+El Titular que considere que la información contenida en una base de datos debe ser
+objeto de corrección, actualización o supresión, podrá presentar un reclamo ante el
+Responsable o Encargado. El reclamo se tramitará una vez recibido con la documentación
+completa; el término máximo para atenderlo será de quince (15) días hábiles contados a
+partir del día siguiente a la fecha de su recibo. Cuando no fuere posible atenderlo
+dentro de dicho término, se informará al interesado los motivos de la demora y la fecha
+en que se atenderá, la cual no podrá superar los ocho (8) días hábiles siguientes al
+vencimiento del primer término.

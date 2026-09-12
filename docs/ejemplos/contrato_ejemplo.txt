@@ -1,0 +1,33 @@
+CONTRATO DE PRESTACIÓN DE SERVICIOS
+
+DESARROLLO DE SOFTWARE DE GESTIÓN DE INVENTARIOS
+
+Cláusula 1. Objeto:
+El Contratista se compromete a diseñar, desarrollar e implementar un software de gestión de inventarios para la Empresa. El sistema deberá permitir registrar productos, consultar existencias, controlar entradas y salidas, generar reportes básicos y administrar usuarios.
+
+Cláusula 2. Alcance del Proyecto:
+El proyecto incluirá el análisis de requisitos, diseño de la solución, programación, configuración de la base de datos, pruebas funcionales y entrega de la documentación técnica básica. Cualquier funcionalidad adicional que no esté contemplada inicialmente deberá ser aprobada por ambas partes y podrá generar costos adicionales.
+
+Cláusula 3. Honorarios y Forma de Pago:
+La Empresa pagará al Contratista la suma total de $5.000 USD. El pago se realizará en dos partes: un 50% ($2.500 USD) al iniciar el proyecto y el 50% restante ($2.500 USD) después de la entrega final y aprobación del software. Si el segundo pago presenta un retraso superior a 10 días hábiles, podrá aplicarse un recargo del 1% por cada semana de retraso, hasta un máximo del 5% del saldo pendiente.
+
+Cláusula 4. Plazo de Ejecución:
+El Contratista tendrá un plazo máximo de 60 días calendario para completar el desarrollo, contados desde la fecha en que se reciba el pago inicial y la información necesaria para comenzar. Los retrasos ocasionados por falta de información, aprobaciones o accesos proporcionados por la Empresa no serán considerados incumplimientos del Contratista.
+
+Cláusula 5. Confidencialidad:
+El Contratista se obliga a mantener en estricta reserva toda la información técnica, comercial, financiera y operativa a la que tenga acceso durante la ejecución del proyecto. Esta obligación permanecerá vigente durante la duración del contrato y por un período de 3 años después de su terminación. La información pública o que ya sea conocida legítimamente por terceros quedará excluida de esta obligación.
+
+Cláusula 6. Propiedad Intelectual:
+Una vez realizado el pago completo de los honorarios establecidos, el código desarrollado específicamente para la Empresa, la documentación y las estructuras de datos creadas para el proyecto serán entregadas a la Empresa. Las librerías, frameworks, herramientas y componentes de terceros conservarán sus respectivas licencias y condiciones de uso.
+
+Cláusula 7. Pruebas y Aceptación:
+Antes de la entrega final, el Contratista realizará pruebas funcionales sobre los módulos principales. La Empresa contará con un plazo de 7 días hábiles para informar errores o incumplimientos respecto de los requisitos acordados. Si durante dicho plazo no se presentan observaciones, el sistema podrá considerarse aceptado.
+
+Cláusula 8. Garantía y Soporte:
+El Contratista ofrecerá 60 días calendario de garantía posteriores a la aceptación final. La garantía cubrirá errores de funcionamiento directamente relacionados con los requisitos originales. Las nuevas funcionalidades, cambios de diseño solicitados posteriormente o problemas ocasionados por modificaciones realizadas por terceros no estarán incluidos.
+
+Cláusula 9. Responsabilidades de las Partes:
+La Empresa deberá proporcionar oportunamente la información, accesos y especificaciones necesarios para el desarrollo. El Contratista será responsable de realizar el trabajo conforme a los requisitos aprobados y de informar oportunamente cualquier situación que pueda afectar el cronograma. Ambas partes deberán colaborar para resolver inconvenientes durante la ejecución.
+
+Cláusula 10. Terminación Anticipada:
+Cualquiera de las partes podrá dar por terminado el contrato mediante notificación escrita con 15 días calendario de anticipación. En caso de terminación anticipada, la Empresa deberá pagar los servicios efectivamente realizados hasta la fecha de terminación. Si la terminación se produce por incumplimiento grave de una de las partes, la parte afectada podrá solicitar las compensaciones que correspondan conforme a la legislación aplicable.
