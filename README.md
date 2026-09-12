@@ -275,6 +275,6 @@ normas colombianas, reproducidos con fines académicos. No son la versión ofici
 necesariamente la vigente; deben verificarse contra la fuente oficial.
 
 ## Autor
-Joan Sebastian Lara Fuenmayor - 506242012,
+Joan Sebastian Lara Fuenmayor - 506242012
 
 Juan David Cruz Rojas - 506242010
