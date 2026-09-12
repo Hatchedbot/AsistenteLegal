@@ -273,3 +273,7 @@ Material de clase usado como base (carpeta `MaterialDeApoyo/`, no incluida en el
 Los archivos de `knowledge_base/` contienen **fragmentos parciales y resumidos** de
 normas colombianas, reproducidos con fines académicos. No son la versión oficial ni
 necesariamente la vigente; deben verificarse contra la fuente oficial.
+
+## Autor
+Joan Sebastian Lara Fuenmayor - 506242012
+Juan David Cruz Rojas - 506242010
